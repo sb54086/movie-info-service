@@ -1,3 +1,6 @@
 server:
   port: 4321
-spring:  application:    name: movie-info-service
+spring:
+  application:
+    name: movie-info-service
+#Never add
