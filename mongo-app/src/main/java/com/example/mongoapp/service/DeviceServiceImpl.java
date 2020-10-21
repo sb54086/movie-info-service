@@ -5,6 +5,8 @@ import com.example.mongoapp.repository.OnBoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("deviceService")
 public class DeviceServiceImpl implements  DeviceService {
     @Autowired
@@ -14,5 +16,14 @@ public class DeviceServiceImpl implements  DeviceService {
     public OnBoard onBoardDevice(OnBoard onBoard) {
 
         return repository.save(onBoard);
+    }
+
+    /**
+     *
+     * @return List of Onboard Devices
+     */
+    @Override
+    public List<OnBoard> getAllBoardDevices() {
+        return repository.findAll();
     }
 }

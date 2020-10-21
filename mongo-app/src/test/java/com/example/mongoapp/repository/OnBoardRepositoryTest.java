@@ -34,7 +34,7 @@ class OnBoardRepositoryTest {
     @Test
     public void testFetchData(){
         logger.info("Testing FetchData");
-      assertNotNull(repository.findAll().get(0));
+      assertEquals(repository.findById("dvId0klapi").get().isActive(),true);
     }
     @AfterEach
      void tearDown() {

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @RestController
 @RequestMapping("/va/device")
 public class DeviceProvisioningController {
@@ -21,5 +23,18 @@ public class DeviceProvisioningController {
 
 
         return new ResponseEntity(deviceService.onBoardDevice(onboard), HttpStatus.OK);
+    }
+    @GetMapping(path = {"/onboard"})
+    public ResponseEntity<Object> getAllOnboardDevices(){
+        return  ResponseEntity.ok(deviceService.getAllBoardDevices());
+    }
+    @GetMapping(path = {"/onboard/demo"})
+    public ResponseEntity<Object> getAllOnboardDevices2(){
+        OnBoard board;
+        board = new OnBoard("domain1","model1","version.1.2","dvId0klapi",
+                "hostPrinter",true,
+                Collections.singletonMap("deviceProp1","valu1"),
+                Collections.singletonMap("encryptionKey1","Value1"));
+        ; return  ResponseEntity.ok(Collections.singletonList(board));
     }
 }

@@ -1,7 +1,9 @@
 package com.example.mongoapp.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
@@ -10,16 +12,23 @@ import java.util.Objects;
 
 @XmlRootElement
 @Document(collection = "onBoard")
+@TypeAlias(value = "_onBoard")
 public class OnBoard implements Serializable {
-
+     @Field
     private String domain;
+    @Field
     private String modelId;
+    @Field
     private String modelVersion;
     @Id
     private String deviceId; //mandetory
+    @Field
     private String alias;
+    @Field
     private boolean isActive;
+    @Field
     private Map<String, String> deviceProperties;
+    @Field
     private Map<String, String> encryptionDetails;
 
     public String getDomain() {
