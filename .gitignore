@@ -103,3 +103,5 @@ gradle-app.setting
 *.log
 
 # End of https://www.gitignore.io/api/maven,eclipse,java-web
+mongo-app/.gradle/6.6.1/javaCompile/classAnalysis.bin
+*.lock
