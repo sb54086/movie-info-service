@@ -8,6 +8,7 @@ class MongoGradleApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
