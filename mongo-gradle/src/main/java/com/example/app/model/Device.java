@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @XmlRootElement
-@Document
+@Document(collation = "devices")
 @JsonSerialize
 public class Device {
     @Id
