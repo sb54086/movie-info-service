@@ -20,14 +20,15 @@ public class DeviceManagmentController {
     @Autowired
     private DeviceManagmentService deviceManagmentService;
 
-    @PostMapping(path = "devices",produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/devices",produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
     public Device saveOrUpdateDevice(@RequestBody Device  device){
         LOGGER.info("Storing Device={}",device);
         return deviceManagmentService.saveDevice(device);
     }
 
-    @GetMapping(path = "devices",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> getDevice(@RequestParam("id")String deviceId, @RequestParam("name")String deviceName){
+    @GetMapping(path = "/devices",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> getDevice(@RequestParam(name = "id",required = false)String deviceId
+            , @RequestParam(name = "name",required = false)String deviceName){
        if(deviceId!=null){
            LOGGER.info("Getting device by ID={}",deviceId);
            return ResponseEntity.ok(deviceManagmentService.getDeviceById(deviceId));
@@ -39,7 +40,7 @@ public class DeviceManagmentController {
         return ResponseEntity.status(HttpStatus.OK).body(deviceManagmentService.getAllDevices());
     }
 
-    @DeleteMapping(path ="devices/{id}" )
+    @DeleteMapping(path ="/devices/{id}" )
     public ResponseEntity<Object> deleteDevice(@PathVariable("id")String deviceId){
         deviceManagmentService.deleteDeviceById(deviceId);
         return  ResponseEntity.noContent().build();

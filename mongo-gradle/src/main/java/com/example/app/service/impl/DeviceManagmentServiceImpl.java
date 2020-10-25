@@ -19,12 +19,16 @@ public class DeviceManagmentServiceImpl implements DeviceManagmentService {
 
     @Override
     public Device getDeviceByName(String deviceName) {
-        return deviceRepository.findDeviceByName(deviceName).get();
+        return deviceRepository
+                .findDeviceByName(deviceName)
+                .get();
     }
 
     @Override
     public Device getDeviceById(String deviceId) {
-        return deviceRepository.findById(deviceId).get();
+        return deviceRepository
+                .findById(deviceId)
+                .orElseThrow(()->new DeviceNotFoundException("Device Not found for Id"+deviceId));
     }
 
     @Override
