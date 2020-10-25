@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Objects;
 public class Device {
     @Id
     @JsonProperty("id")
+    @Generated(value = "increment")
     private String deviceId;
     @JsonProperty
     private String name;

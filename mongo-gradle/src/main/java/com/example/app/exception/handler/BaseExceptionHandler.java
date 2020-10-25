@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class BaseExceptionHandler {
     private static final Logger LOGGER= LoggerFactory.getLogger(BaseExceptionHandler.class);
-    
+
     @ExceptionHandler(DeviceNotFoundException.class)
     public ResponseEntity<Object> handleDeviceNotFoundException(DeviceNotFoundException e){
-        LOGGER.error("Handling DeviceNotFoundException",e);
+        LOGGER.error("Handling DeviceNotFoundException");
         return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Device Found");
     }
 }
