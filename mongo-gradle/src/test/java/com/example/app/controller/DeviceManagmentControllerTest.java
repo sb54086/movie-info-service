@@ -25,7 +25,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
-//@SpringBootTest
+@SpringBootTest
 //@TestPropertySource("classpath:application-test.properties")
 //Required for properties to Test the controller
 public class DeviceManagmentControllerTest {
